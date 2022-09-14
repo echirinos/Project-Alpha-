@@ -11,22 +11,22 @@
             <nav>
                 <ul>
                     {% if user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'show_my_tasks' %}">My tasks</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'list_projects' %}">My projects</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'logout' %}">Logout</a>
-                    </li>
+                        <li>
+                            <a href="{% url 'show_my_tasks' %}">My tasks</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'list_projects' %}">My projects</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'logout' %}">Logout</a>
+                        </li>
                     {% else %}
-                    <li>
-                        <a href="{% url 'login' %}">Login</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'signup' %}">Signup</a>
-                    </li>
+                        <li>
+                            <a href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'signup' %}">Signup</a>
+                        </li>
                     {% endif %}
                 </ul>
             </nav>
@@ -50,19 +50,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                        {% for task in project.tasks.all %}
-                        <tr>
-                            <td>{{ task.name }}</td>
-                            <td>{{ task.assignee }}</td>
-                            <td>{{ task.start_date }}</td>
-                            <td>{{ task.due_date }}</td>
-                            <td>{{ task.is_completed }}</td>
-                        </tr>
-                        {% endfor %}
+                            {% for task in project.tasks.all %}
+                                <tr>
+                                    <td>{{ task.name }}</td>
+                                    <td>{{ task.assignee }}</td>
+                                    <td>{{ task.start_date }}</td>
+                                    <td>{{ task.due_date }}</td>
+                                    <td>{{ task.is_completed }}</td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 {% else %}
-                <p>This project has no tasks</p>
+                    <p>This project has no tasks</p>
                 {% endif %}
             </div>
         </main>

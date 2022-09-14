@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, CreateView
 from projects.models import Project

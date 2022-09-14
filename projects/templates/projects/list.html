@@ -8,22 +8,22 @@
             <nav>
                 <ul>
                     {% if user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'show_my_tasks' %}">My tasks</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'list_projects' %}">My projects</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'logout' %}">Logout</a>
-                    </li>
+                        <li>
+                            <a href="{% url 'show_my_tasks' %}">My tasks</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'list_projects' %}">My projects</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'logout' %}">Logout</a>
+                        </li>
                     {% else %}
-                    <li>
-                        <a href="{% url 'login' %}">Login</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'signup' %}">Signup</a>
-                    </li>
+                        <li>
+                            <a href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'signup' %}">Signup</a>
+                        </li>
                     {% endif %}
                 </ul>
             </nav>
@@ -35,22 +35,22 @@
                 <h1>My Projects</h1>
                 <p><a href="{% url 'create_project' %}">Create Project</a></p>
                 {% if project_list|length == 0 %}
-                <p>You are not assigned to any projects</p>
+                    <p>You are not assigned to any projects</p>
                 {% else %}
-                <table>
-                    <thead>
-                        <th>Name</th>
-                        <th>Number of tasks</th>
-                    </thead>
-                    <tbody>
-                        {% for project in project_list %}
-                        <tr>
-                            <td><a href="{% url 'show_project' project.pk %}">{{ project.name }}</a></td>
-                            <td>{{ project.tasks.all|length }} </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    <table>
+                        <thead>
+                            <th>Name</th>
+                            <th>Number of tasks</th>
+                        </thead>
+                        <tbody>
+                            {% for project in project_list %}
+                                <tr>
+                                    <td><a href="{% url 'show_project' project.pk %}">{{ project.name }}</a></td>
+                                    <td>{{ project.tasks.all|length }} </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 {% endif %}
             </div>
         </main>
