@@ -28,13 +28,10 @@
                     {% endif %}
                 </ul>
             </nav>
-
         </header>
-
-        </nav>
         <main>
             <div>
-                <h1>Login<h1>
+                <h1>Login</h1>
                 <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
